@@ -56,28 +56,7 @@ class NewCtrollers {
     }
   }
 
-  //abdate  data
-
-  async patchData(req, res, next, abdateDate) {
-    const id = req.params.id;
-    const title = req.abdateDate.title;
-    const tobic = req.abdateDate.tobic;
-    const place = req.abdateDate.place;
-
-    try {
-      const id = req.params.id;
-
-      const abdateDate = await NewServices.abdateById(id);
-
-      if (!abdateDate) {
-        throw new badRequestsErrors(`is not find Id${id}`);
-      }
-
-      res.status(200).json(abdateDate);
-    } catch (error) {
-      next(new badRequestsErrors(error));
-    }
-  }
+  
 
   //delete
   async deleteData(req, res, next) {
