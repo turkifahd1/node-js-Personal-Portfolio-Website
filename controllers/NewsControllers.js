@@ -3,11 +3,9 @@ const { PrismaClient } = require("@prisma/client");
 const badRequestsErrors = require("../errors/badRequests");
 const NewServices = require("../services/News");
 const ErrorCode = require("../errors/root");
-const prisma = new PrismaClient();
+
 
 class NewCtrollers {
-
-
 
   // post data
   async postAll(req, res, next) {
