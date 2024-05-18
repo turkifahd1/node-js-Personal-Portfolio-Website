@@ -12,6 +12,6 @@ app.use("/api", Newrouter);
 
 app.use(middlewareFunction);
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log(`http://localhost:${port}/`);
 });
