@@ -7,7 +7,13 @@ app.use(express.json());
 const Newrouter = require("./routers/NewsRoutes");
 
 const middlewareFunction = require("./middleware/errors");
+const cors = require('cors');
 
+
+// تكوين middleware CORS
+app.use(cors({
+  origin: '*'
+}));
 
 
 app.use("/api", Newrouter);
