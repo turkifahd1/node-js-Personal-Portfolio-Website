@@ -13,11 +13,12 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Neww {
+model  Projects {
 id             String          @id @default(auto()) @map("_id") @db.ObjectId
-  title    String
-  tobic  String
-  place  String
+  projectName    String
+  description  String
+  projectLink  String
+  images      String
   createdAt DateTime @default(now()) //يضيف لك التاريخ تلقائي
   
 }
