@@ -7,7 +7,7 @@ class projectsServer{
 
   
   //send data 
-async postAll(projectsData){
+async post(projectsData){
   try{
     const exitProjectName =await prisma.projects.findFirst({where:{  projectName : projectsData.projectName}})
     if(exitProjectName){
@@ -27,7 +27,7 @@ async postAll(projectsData){
 }
 
 //get all data
-async getData(){
+async get(){
   try{
     const exsit  = await prisma.projects.findMany();
     if(!exsit){
@@ -44,7 +44,7 @@ async getData(){
 }
 
 //get data by id 
-async getById(id){
+async getID(id){
   try{
     const exsitId= await prisma.projects.findUnique({where:{id}});
   if(!exsitId){
@@ -62,7 +62,7 @@ async getById(id){
 }
 
 //delet data by id 
-async deleteById(id){
+async delete(id){
   try{
     const exsitId= await prisma.projects.delete({where:{id}});
   if(!exsitId){
@@ -80,7 +80,7 @@ async deleteById(id){
 }
 
 //abdate data by id
-async abdateById(id ,data){
+async update(id ,data){
 
   const  exsitId = await prisma.projects.findUnique({ where: { id } });
   if (!exsitId) {

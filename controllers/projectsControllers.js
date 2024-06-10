@@ -1,17 +1,17 @@
 
 const badRequestErrors=require("../errors/badRequests")
 const errorCode=require("../errors/root")
-const projectsServer=require("../services/Projects")
+const projectsServer=require("../services/projects")
 
 
 class projectsControllers{
 
   //post data 
 
-  async postAll(req,res,next){
+  async post(req,res,next){
     try{
       const projectsData =req.body;
-      const projectsPost=await projectsServer.postAll(projectsData) ; //postAll هاذي ماهي حق الصفحة ذي الي هنا بل انها حق الي في صفحة server تتشابه الاسامي لاتلخبلط
+      const projectsPost=await projectsServer.post(projectsData) ; //postAll هاذي ماهي حق الصفحة ذي الي هنا بل انها حق الي في صفحة server تتشابه الاسامي لاتلخبلط
       res.status(200).json(projectsPost)
     }catch(error){
       next(new badRequestErrors(error))
@@ -20,9 +20,9 @@ class projectsControllers{
   }
 
   //get all data
-  async getData(req,res,next){
+  async get(req,res,next){
     try{
-      const getDataa=await projectsServer.getData();
+      const getDataa=await projectsServer.get();
       if(!getDataa){
         throw new badRequestErrors("is not find data")
       }
@@ -34,11 +34,11 @@ class projectsControllers{
   }
 
  // get data by id
- async getById(req,res,next){
+ async getID(req,res,next){
    
   try{
     const id = req.params.id;
-    const getData=await projectsServer.getById(id);
+    const getData=await projectsServer.getID(id);
     
     if(!getData){
       throw new badRequestErrors(`not find by id ${id}`)
@@ -52,11 +52,11 @@ class projectsControllers{
  }
  
  // delet data by id
- async deleteById(req,res,next){
+ async delete(req,res,next){
    
   try{
     const id = req.params.id;
-    const getData=await projectsServer.deleteById(id);
+    const getData=await projectsServer.delete(id);
     
     if(!getData){
       throw new badRequestErrors(`not find by id ${id}`)
@@ -70,11 +70,11 @@ class projectsControllers{
  }
 
  //apdateById
- async updateById(req, res, next) {
+ async update(req, res, next) {
   try {
     const id = req.params.id;
     const updateData = req.body;
-    const updatedPost = await projectsServer.abdateById(id, updateData);
+    const updatedPost = await projectsServer.update(id, updateData);
     res.status(200).json(updatedPost);
   } catch (error) {
     next(new BadRequestErrors(error.message, ErrorCode.GENERIC_ERROR));

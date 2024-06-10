@@ -4,16 +4,16 @@ const projectsControllers =require("../controllers/projectsControllers")
 const projectsValidator = require('../validator/newsValidator')
 
 //post data to  mongo
-Routerr.post("/",projectsValidator.userValidationRules(),projectsValidator.validate,projectsControllers.postAll)
+Routerr.post("/",projectsValidator.userValidationRules(),projectsValidator.validate,projectsControllers.post)
 //Get all data to mongo
-Routerr.get("/",projectsControllers.getData)
+Routerr.get("/",projectsControllers.get)
 
 //Get data by id 
-Routerr.get("/:id",projectsControllers.getById)
+Routerr.get("/:id",projectsControllers.getID)
 
 //delete data by id 
-Routerr.delete("/:id",projectsControllers.deleteById)
+Routerr.delete("/:id",projectsControllers.delete)
 
 //abdate data by id 
-Routerr.put("/:id",projectsValidator.userValidationRules(),projectsValidator.validate ,projectsControllers.updateById)
+Routerr.put("/:id",projectsValidator.userValidationRules(),projectsValidator.validate ,projectsControllers.update)
 module.exports= Routerr;
